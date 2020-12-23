@@ -1,5 +1,5 @@
 
-# Remote Learning Sentiment Classifer
+# WIP ALERT -- Remote Learning Sentiment Classifer -- WIP ALERT
 
 ## Capstone Project
 ### Flatiron Online Data Science Bootcamp
