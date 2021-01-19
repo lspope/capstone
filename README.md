@@ -1,5 +1,5 @@
 
-# WIP ALERT -- Remote Learning Sentiment Classifer -- WIP ALERT
+# WIP ALERT -- COVID-19 K-12 Learning Sentiment Classifer -- WIP ALERT
 
 ## Capstone Project
 ### Flatiron Online Data Science Bootcamp
@@ -15,11 +15,13 @@ Blog: [Coming Soon](https://leahspope7.medium.com)
 
 # Introduction
 
-COVID-19 has impacted the world in a multitude of ways, one of the most wide-spread changes in the United States is the pandemic-prompted increase in remote learning.  
+COVID-19 has impacted the world in a multitude of ways, some of the most striking and visible effects in the United States occurred within K-12 education. 
 
-For my capstone project, I want to explore the question "What is the sentiment of COVID-19-prompted, remote learning in the United States?" Using data collected from Twitter, Natural Language Processing and Supervised Machine Learning, I created a text classifier to predict the sentiment (positive/negative) of Tweets on remote learning in the United States during 2020.
+For my capstone project, I want to explore the question "What is the public sentiment in the U.S. on K-12 learning during the COVID-19 pandemic?", Using data collected from Twitter, Natural Language Processing, and Supervised Machine Learning, I created a text classifier to predict the sentiment (positive/negative) of Tweets on this topic.
 
-The Stakeholders for my project are educational entities (school boards, superintendents, school administrators and educators) and companies (education technology, internet providers) seeking to support students engaged in remote learning.
+(EDA Goals:) I performed exploratory data analysis to uncover trends by U.S. region. I also conducted Unsupervised Machine Learning to detect specific topics in the Positive and Negative Tweets.
+
+The Primary Stakeholders for my project are educational entities (school boards, superintendents, school administrators and educators) as well as companies (i.e., education technology, internet providers) and organizations (i.e., non-profits, academic researchers) seeking to support students engaged in remote learning. 
 
 
 # Data Description
