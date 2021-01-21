@@ -12,22 +12,6 @@ usa_states_fullname_regex = '(ALABAMA|ALASKA|ARIZONA|ARKANSAS|CALIFORNIA|COLORAD
                             'NEBRASKA|NEVADA|NEW\sHAMPSHIRE|NEWSJERSEY|NEW\sMEXICO|NEW\sYORK|NORTH\sCAROLINA|NORTH\sDAKOTA|OHIO|OKLAHOMA|OREGON|PENNSYLVANIA|RHODE\sISLAND|'\
                             'SOUTH\sCAROLINA|SOUTH\sDAKOTA|TENNESSEE|TEXAS|UTAH|VERMONT|VIRGINIA|WASHINGTON|WEST\sVIRGINIA|WISCONSIN|WYOMING)'
 
-# query_list_with_and = ['k12 AND remote', 'k-12 AND remote', 
-#     'k12 AND distance', 'k-12 AND distance', 
-#     'k12 AND online' , 'k-12 AND online' , 
-#     'k12 AND virtual', 'k-12 AND virtual', 
-#     'k12 AND hybrid', 'k-12 AND hybrid',
-#     'teach AND remote AND learn', 
-#     'teach AND distance AND learn', 
-#     'teach AND online AND learn',
-#     'teach AND virtual AND learn', 
-#     'teach AND hybrid AND learn', 
-#     'child AND remote AND learn', 
-#     'child AND distance AND learn',
-#     'child AND online AND learn',
-#     'child AND virtual AND learn', 
-#     'child AND hybrid AND learn' ]
-
 query_list = [
     'k-12 remote', 
     'k-12 distance', 
@@ -55,7 +39,6 @@ def get_mongo_client(host='localhost', port=27017):
 
 def get_twitter_collection(mongo_client):
     capstone_db = mongo_client['capstone_db']
-    #twitter_collection = capstone_db['queried_tweets']
     twitter_collection = capstone_db['queried_tweets_before_jan_14']
     return twitter_collection
 
@@ -94,23 +77,6 @@ def get_desired_attributes(tweet):
         return tweet_doc
 
 
-# Helper function to handle twitter API rate limit
-# def limit_handled(cursor, list_name):
-#   while True:
-#     try:
-#       yield cursor.next()
-#     # Catch Twitter API rate limit exception and wait for 15 minutes
-#     except tweepy.RateLimitError:
-#       print("\nData points in list = {}".format(len(list_name))))
-#       print('Hit Twitter API rate limit.')
-#       for i in range(3, 0, -1):
-#         print("Wait for {} mins.".format(i * 5))
-#         time.sleep(5 * 60)
-#     # Catch any other Twitter API exceptions
-#     except tweepy.error.TweepError:
-#       print('\nCaught TweepError exception' )
-
-
 def get_tweets(api, query):
     # search twitter using query terms -returns response in json format - UPDATE TO USE PAGES??
 
@@ -126,17 +92,6 @@ def get_tweets(api, query):
                     print(user_loc_str)
                     twitter_collection.insert(get_desired_attributes(tweet))
     
-        
-        # user_loc_str = str(tweet.user.location).upper()
-        # found_usa_state = re.search(usa_states_regex, user_loc_str) or re.search(usa_states_fullname_regex, user_loc_str)
-        # if found_usa_state:
-        #     if hasattr(tweet, 'retweeted_status'):
-        #         print('Not storing Retweets')
-        #     else:
-        #         print(f'text:{tweet.full_text}, screen name:{tweet.screen_name}, loc: {user_loc_str} \n')
-        #         tweets.append(tweet._json)
-
-
 
 if __name__=="__main__":
     fp = '/home/user/.ssh/twitter_app_capstone.json'

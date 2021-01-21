@@ -18,13 +18,13 @@ track_terms = [
     'k-12 (on-line OR online)' , 
     'k-12 virtual', 
     'k-12 hybrid',
-  #  'teach remote learn',
-   # 'teach distance learn', 
-   # 'teach (on-line OR online) learn',
-   # 'teach virtual learn', 
-   # 'teach hybrid learn', S
+    'teach remote learn',
+ #   'teach distance learn', 
+#    'teach (on-line OR online) learn',
+#    'teach virtual learn', 
+#    'teach hybrid learn', 
     '(kid OR child) remote learn', 
-    '(kid OR child) distance learn',
+ #   '(kid OR child) distance learn',
     '(kid OR child) (on-line OR online) learn',
     '(kid OR child) virtual learn', 
     '(kid OR child) hybrid learn'
@@ -32,33 +32,46 @@ track_terms = [
 
 
 class MyStreamListener(tweepy.StreamListener):
-    def __init__(self, api, twitter_collection):
+    def __init__(self, api, twitter_collection, filter_retweets):
         super(MyStreamListener, self).__init__()
         self.api = api
         self.me = api.me()
         self.twitter_collection = twitter_collection
-
-    def on_status(self, tweet):
-        if hasattr(tweet, 'retweeted_status'):
-            print('Not getting retweets')
-        else:
-            if tweet.user.location:
-                user_loc_str = str(tweet.user.location).upper()
-                found_usa_state = re.search(usa_states_regex, user_loc_str) or re.search(usa_states_fullname_regex, user_loc_str)
-                if found_usa_state:
-                    #print('storing')
-                    tweet_doc = self.get_desired_attributes(tweet)
-                    print(tweet_doc['user_loc'])
-                    print(tweet_doc['content'])
-                    twitter_collection.insert(tweet_doc)           
-
+        self.filter_retweets = filter_retweets
+        
     def on_error(self, status_code):
         print('Error detected')
         if status_code == 420:
         #returning False in on_data disconnects the stream
             print('420 - exceeded # of attempts to connect to the streaming API in a window of time')
             return False
+    
+    def on_status(self, tweet):
+        is_retweet = hasattr(tweet, 'retweeted_status')
+        # If it is retweet check if we are filtering out retweets
+        if is_retweet:
+            if filter_retweets:
+                print('Not storing retweets')
+                return
 
+        # Checking tweet for likely USA location
+        is_usa_loc = self.get_is_usa_loc(tweet)
+        if is_usa_loc:
+            tweet_doc = self.get_desired_attributes(tweet)
+            print(tweet_doc['user_loc'])
+            print(tweet_doc['content'])
+            # insert the tweet into collection
+            twitter_collection.insert(tweet_doc)   
+        else:
+            print('Could not determine USA location')
+
+    def get_is_usa_loc(self, tweet):
+        is_usa_loc = False
+        if tweet.user.location:
+            user_loc_str = str(tweet.user.location).upper()
+            is_usa_loc = re.search(usa_states_regex, user_loc_str) or re.search(usa_states_fullname_regex, user_loc_str)
+        return is_usa_loc
+    
     def get_desired_attributes(self, tweet):
         id_str = tweet.id_str
         content = tweet.text
@@ -112,24 +125,32 @@ if __name__=="__main__":
     for i in range(1, n):
         print(sys.argv[i], end = " ")
 
+    # get filter retweets flag
+    filter_retweets = True
+    if sys.argv[1]:
+        param = sys.argv[1]
+        if param == 'False':
+            filter_retweets = False
+
+    # get any track terms passed in command line
     track_terms_from_commandline = []
-    for i in range(1, n):
+    for i in range(2, n):
         track_terms_from_commandline.append(sys.argv[i])
 
     print(track_terms_from_commandline)
-
+    
     fp = '/home/user/.ssh/twitter_app_capstone.json'
     mongo_client = get_mongo_client()
     twitter_collection = get_twitter_collection(mongo_client=mongo_client)
     api = get_twitter_api(filepath=fp)
 
     # set the stream listener and GO!
-    tweets_listener = MyStreamListener(api=api, twitter_collection=twitter_collection)
+    tweets_listener = MyStreamListener(api=api, twitter_collection=twitter_collection,filter_retweets=filter_retweets)
     stream = tweepy.Stream(api.auth, tweets_listener)
     try:
-        print('Streaming has begun...')
+        print('Streaming has begun with filter_retweets set to ' + str(filter_retweets))
         track_terms_to_use = track_terms
-        if n > 1:
+        if n > 2:
             print('using track terms from command line')
             track_terms_to_use = track_terms_from_commandline
 
