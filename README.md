@@ -45,7 +45,7 @@ In the [Final Model Notebook](./code/modeling.ipynb), I performed hyperparameter
 
 
 # EDA Questions Explored
-I performed [EDA](./code/eda.ipynb) on various sentiment breakdowns (see Questions 1,2, and 3). I also performed [Corpus EDA](./code/corpus_eda.ipynb) using Unsupervised Learning (LatentDirichletAllocation) to perform Topic Modeling (see Question 4).
+I performed [EDA](./code/eda.ipynb) on various sentiment breakdowns (see Questions 1, 2, and 3). I also performed [Corpus EDA](./code/corpus_eda.ipynb) using Unsupervised Learning (LatentDirichletAllocation) to perform Topic Modeling (see Question 4).
 
 #### Question 1: What is the general sentiment breakdown for the collected Tweets?
 #### Question 2: What is the Breakdown of Tweets by US Geographic Region and by State in each Region?
@@ -64,7 +64,7 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 ### Recommendation 2
 * Audience: Audience: Education-focused Stakeholders
 * EDA on the breakdown of Tweets by State in each Region identified two areas of concern. 
-    * ___2 of the 5__ Regions have a 'leading' State that far exceeds the others in number of Tweets. The leading state in the _West_ and _Southwest_ Regions have more than __twice__ the number of Tweets of the 'next-in-line' State I Recommend that Education-focused Stakeholders take into consideration that these Regions may be over-representing the 'leading' state. Region/State population analysis is most likely required.
+    * __2 of the 5__ Regions have a 'leading' State that far exceeds the others in number of Tweets. The leading state in the _West_ and _Southwest_ Regions have more than __twice__ the number of Tweets of the 'next-in-line' State I Recommend that Education-focused Stakeholders take into consideration that these Regions may be over-representing the 'leading' state. Region/State population analysis is most likely required.
     * __3 of the 5__ Regions had States that provided > 1% of Tweets for the Region. This occured in the _West_ (Montana, Alaska, and Wyoming), _Northeast_ (Delaware), and _Midwest_ (North and South Dakota). I recommend that Stakeholders take into consideration that these States, in particular, may be under-represented in the Region. State population analysis is most likely required.
 
 ### Recommendation 3
