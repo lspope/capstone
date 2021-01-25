@@ -1,8 +1,8 @@
 
-# WIP ALERT -- COVID-19 K-12 Learning Sentiment Classifer -- WIP ALERT
+# COVID-19 K-12 Learning Sentiment Classifer
 
-## Capstone Project
-### Flatiron Online Data Science Bootcamp
+
+Flatiron Online Data Science Bootcamp __Capstone Project__
 
 Prepared and presented by: [Leah Pope](https://www.linkedin.com/in/leahspope/)
 
@@ -15,45 +15,45 @@ Blog: [Coming Soon](https://leahspope7.medium.com)
 # Introduction
 COVID-19 has impacted the world in a multitude of ways, some of the most striking and wide-reaching effects in the United States occurred within K-12 education. 
 
-For my capstone project, I want to explore the question "What is the public sentiment in the US on K-12 learning during the COVID-19 pandemic?".
+For my Capstone Project, I explore the question "What is the public sentiment in the US on K-12 learning during the COVID-19 pandemic?".
 
 Using data collected from Twitter, Natural Language Processing, and Supervised Machine Learning, I created a text classifier to predict the sentiment (Positive, Negative, or Neutral) of Tweets on this topic.
 
-I performed exploratory data analysis to uncover trends by US region. I also conducted Unsupervised Machine Learning to detect topics in the tweets.
+I performed exploratory data analysis to uncover sentiment and engagement trends. I also conducted Unsupervised Machine Learning to detect topics in the Positive, Negative, and Neutral tweets.
 
 I created my project with the following Stakeholders in mind, educational entities and personnel (school boards, superintendents, school administrators and educators) as well as companies (i.e., education technology, internet providers) and organization (i.e., non-profits, academic researchers) seeking to support K-12 students as the US navigates the COVID-19 pandemic.
 
 
 # Data Description and Preparation
-The data used in this project was collected from Twitter using [Tweepy](https://github.com/tweepy). The data is from both an external data source and data the I collected myself.  The exernal data is from Kaggle [Tweets about distance learning] (https://www.kaggle.com/barishasdemir/tweets-about-distance-learning).  A total of 38,392 tweets were collected. 
+The data used in this project was collected from Twitter using [Tweepy](https://github.com/tweepy). The data is from both an external data source and data the I collected myself.  The exernal data is from Kaggle [Tweets about distance learning](https://www.kaggle.com/barishasdemir/tweets-about-distance-learning).  A total of 38,392 tweets were collected. 
 
 Positive, Negative, and Neutral sentiment scores on the Tweets were obtained with a hybrid approach of using [VADER](https://github.com/cjhutto/vaderSentiment) and [Text Blob](https://github.com/sloria/textblob) sentiment tools with some (limited) human labeling. 
 
-See the [Data Prep Notebook](./code/data_cleaning_and_eda.ipynb) for additional information on data collection and preparation. 
+See the [Data Prep Notebook](./code/data_prep.ipynb) for additional information on data collection and preparation. 
+
 
 
 # Sentiment Classifer Modeling
-I experimented with multiple classification models, used the weighted F1 score as the performance metric, and ultimately selected LinearSVC. I performed hyperparameter tuning using GridSearchCV to train the final model with the following performance.
+In the [Experimentation Notebook](./code/modeling.ipynb) I trained three different multiclass classifers.  I used weighted F1 score as the performance metric, and ultimately selected the LinearSVC model for further tuning.
+
+In the [Final Model Notebook](./code/modeling.ipynb) I performed hyperparameter tuning using GridSearchCV, which resulted in a multiclass classifer with the following performance:
 * Weighted F1 score of 0.94 
 * Positive class F1 score of 0.97 
 * Neutral class F1 score of 0.90
 * Negative class F1 score of 0.83
-
-### [Experimentation Notebook](./code/modeling.ipynb)
-### [Final Model Notebook](./code/modeling.ipynb)
 
 
 
 # EDA Questions Explored
 I performed exploratory data analysis on various sentiment breakdowns. I also performed exploratory data analysis on the corpus using Topic Modeling.
 
-### Question 1: What is the general sentiment breakdown for the collected Tweets?
-### Question 2: What is the Breakdown of Tweets by US Geographic Region and by State in each Region?
-### Question 3: What is the Sentiment Breakdown of Tweets by US Geographic Region and by State in each Region?
-### [EDA Notebook](./code/eda.ipynb)
+#### Question 1: What is the general sentiment breakdown for the collected Tweets?
+#### Question 2: What is the Breakdown of Tweets by US Geographic Region and by State in each Region?
+#### Question 3: What is the Sentiment Breakdown of Tweets by US Geographic Region and by State in each Region?
+#### [EDA Notebook](./code/eda.ipynb)
 
-### Question 4: What are the Topics for Positive, Negative, and Neutral Tweets in the US, in the Southeast Region, and in the state of Alabama?
-### [EDA Notebook](./code/corpus_eda.ipynb)
+#### Question 4: What are the Topics for Positive, Negative, and Neutral Tweets in the US, in the Southeast Region, and in the state of Alabama?
+#### [Corpus EDA Notebook](./code/corpus_eda.ipynb)
 
 
 
