@@ -34,9 +34,9 @@ See the [Data Prep Notebook](./code/data_prep.ipynb) for additional information 
 
 
 # Sentiment Classifer Modeling
-In the [Model Experimentation Notebook](./code/modeling.ipynb) I trained three different multiclass classifers (RandomForest, SGDClassifier, and LinearSCV).  I used weighted F1 score as the performance metric, and ultimately selected the LinearSVC model for further tuning.
+In the [Model Experimentation Notebook](./code/model_playground.ipynb), I trained three different multiclass classifers (RandomForest, SGDClassifier, and LinearSCV).  I used weighted F1 score as the performance metric, and ultimately selected the LinearSVC model for further tuning.
 
-In the [Final Model Notebook](./code/modeling.ipynb) I performed hyperparameter tuning using GridSearchCV, resulting in a multiclass classifer with the following performance:
+In the [Final Model Notebook](./code/modeling.ipynb), I performed hyperparameter tuning using GridSearchCV, resulting in a multiclass classifer with the following performance:
 * Weighted F1 score of __0.94__ 
 * Positive class F1 score of 0.97 
 * Neutral class F1 score of 0.90
@@ -45,30 +45,27 @@ In the [Final Model Notebook](./code/modeling.ipynb) I performed hyperparameter 
 
 
 # EDA Questions Explored
-I performed exploratory data analysis on various sentiment breakdowns. I also performed exploratory data analysis on the corpus using Topic Modeling.
+I performed [EDA](./code/eda.ipynb) on various sentiment breakdowns (see Questions 1,2, and 3). I also performed [Corpus EDA](./code/corpus_eda.ipynb) using Unsupervised Learning (LatentDirichletAllocation) to perform Topic Modeling (see Question 4).
 
 #### Question 1: What is the general sentiment breakdown for the collected Tweets?
 #### Question 2: What is the Breakdown of Tweets by US Geographic Region and by State in each Region?
 #### Question 3: What is the Sentiment Breakdown of Tweets by US Geographic Region and by State in each Region?
-#### [EDA Notebook](./code/eda.ipynb)
-
 #### Question 4: What are the Topics for Positive, Negative, and Neutral Tweets in the US, in the Southeast Region, and in the state of Alabama?
-#### [Corpus EDA Notebook](./code/corpus_eda.ipynb)
 
 
 
 # Recommendations
-My recommendations are for both technical and non-technical stakeholders.
+My recommendations are for the Education-focused Stakeholders identified in the Introduction and for Data Scientists seeking to expand upon this work.
 
 ### Recommendation 1
 * Audience: Education-focused Stakeholders
-* The number of Positive sentiment Tweets is substainally higher than the other sentiment classes in every State, in every Region. This initial analysis suggests that Twitter is being used across the US to communicate positive information and statements on Education during COVID. I recommend that Education Entity Stakeholders explore the Topic Modeling analysis of these Positive Tweets for additional insight. 
+* The number of Positive sentiment Tweets is substainally higher than the other sentiment classes in every State, in every Region. This initial analysis suggests that Twitter is being used across the US to communicate positive information and statements on Education during COVID. I recommend that Stakeholders explore the [Topic Modeling analysis](./code/corpus_eda.ipynb) of these Positive Tweets for additional insight. 
 
 ### Recommendation 2
 * Audience: Audience: Education-focused Stakeholders
 * EDA on the breakdown of Tweets by State in each Region identified two areas of concern. 
-    * 2 of the 5 Regions have a 'leading' State that far exceeds the others in number of Tweets. The leading state in the __West__ and __Southwest__ Regions have more than __twice__ the number of Tweets of the 'next-in-line' State.  I Recommend that Education-focused Stakeholders take into consideration that these Regions may be over-representing the 'leading' state and that Region/State population analysis is most likely required.
-    * 3 of the 5 Regions had States that provided > 1% of Tweets for the Region. This occured in the __West__ (Montana, Alaska, and Wyoming), __Northeast__(Delaware), and __Midwest__ (North and South Dakota). I recommend that Education-focused Stakeholders take into consideration that these States, in particular, may be under-represented in the Region. State population analysis is most likely required.
+    * ___2 of the 5__ Regions have a 'leading' State that far exceeds the others in number of Tweets. The leading state in the _West_ and _Southwest_ Regions have more than __twice__ the number of Tweets of the 'next-in-line' State I Recommend that Education-focused Stakeholders take into consideration that these Regions may be over-representing the 'leading' state. Region/State population analysis is most likely required.
+    * __3 of the 5__ Regions had States that provided > 1% of Tweets for the Region. This occured in the _West_ (Montana, Alaska, and Wyoming), _Northeast_ (Delaware), and _Midwest_ (North and South Dakota). I recommend that Stakeholders take into consideration that these States, in particular, may be under-represented in the Region. State population analysis is most likely required.
 
 ### Recommendation 3
 * Audience: Data Scientists seeking to expand this work
@@ -78,7 +75,7 @@ My recommendations are for both technical and non-technical stakeholders.
 
 # Future Work
 * Create a dashboard/app that would allow the user to select specific Regions and/or States for Topic Modeling. Also allow for setting the desired number of topics and top word count. 
-* Create a dashboard/app to classify tweets from the live Twitter stream. Allow the user to stream for Tweets for the entire United States,or selected US region(s) or selected US state(s).
+* Create a dashboard/app to classify Tweets from the live Twitter stream. Allow the user to stream for Tweets for the entire United States, or selected US Region(s) or selected US State(s).
 * Continue to collect Tweets over a longer timespan and update model.
 * Improve the regex code used to detect a 'likely' United States location from the Tweet User-provided Location string.
 
