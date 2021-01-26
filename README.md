@@ -6,7 +6,7 @@ Flatiron Online Data Science Bootcamp __Capstone Project__
 
 Prepared and presented by: [Leah Pope](https://www.linkedin.com/in/leahspope/)
 
-Presentation: [Coming Soon](CapstoneProject_LeahPope.pdf)
+Presentation: [Here](CapstoneProject_LeahPope.pdf)
 
 Blog: [Coming Soon](https://leahspope7.medium.com)
 
@@ -59,7 +59,7 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 
 ### Recommendation 1
 * Audience: Education-focused Stakeholders
-* The number of Positive sentiment Tweets is substainally higher than the other sentiment classes in every State, in every Region. This initial analysis suggests that Twitter is being used across the US to communicate positive information and statements on Education during COVID. I recommend that Stakeholders explore the [Topic Modeling analysis](./code/corpus_eda.ipynb) of these Positive Tweets for additional insight. 
+* The number of Positive sentiment Tweets is __substantially__ higher than the other sentiment classes in every State, in every Region. This initial analysis suggests that Twitter is being used across the US to communicate positive information and statements on Education during COVID. I recommend that Stakeholders explore the [Topic Modeling analysis](./code/corpus_eda.ipynb) of these Positive Tweets for additional insight. 
 
 ### Recommendation 2
 * Audience: Audience: Education-focused Stakeholders
@@ -82,7 +82,7 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 
 
 # For More Information
-* Review the non-technical presentation [Coming Soon](CapstoneProject_LeahPope.pdf)
+* Review the [non-technical presentation](CapstoneProject_LeahPope.pdf)
 * Contact the author [Leah Pope](https://www.linkedin.com/in/leahspope/)
 
 
