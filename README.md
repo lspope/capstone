@@ -13,6 +13,7 @@ Blog: [Coming Soon](https://leahspope7.medium.com)
 ![education_during_covid_image](images/thomas-park-6MePtA9EVDA-unsplash.jpg)
 
 
+
 # Introduction
 COVID-19 has impacted the world in a multitude of ways. Some of the most striking and wide-reaching effects in the United States occurred within K-12 education. My Data Science Capstone Project explores the question "What is the public sentiment in the United States on K-12 learning during the COVID-19 pandemic?".
 
@@ -25,9 +26,11 @@ I created this project with the following Stakeholders in mind, educational enti
 
 
 # Data Description and Preparation
-I collected data from Twitter using [Tweepy](https://github.com/tweepy) and used previously collected Twitter data from the [Tweets about distance learning](https://www.kaggle.com/barishasdemir/tweets-about-distance-learning) dataset shared on Kaggle.  After combining the two datasets and filtering out non-US locations, a total of 30,599 Tweets were used. 
+I collected data from Twitter using [Tweepy](https://github.com/tweepy) and used previously collected Twitter data from the [Tweets about distance learning](https://www.kaggle.com/barishasdemir/tweets-about-distance-learning) dataset shared on Kaggle.
 
 Positive, Negative, and Neutral sentiment labels for the Tweets were obtained using a hybrid approach combining the [VADER](https://github.com/cjhutto/vaderSentiment) and [Text Blob](https://github.com/sloria/textblob) sentiment tools with (limited) human labeling. 
+
+30,599 Tweets made it to the final project dataset after combining the Kaggle and collected Tweets, filtering out non-US locations, and dropping Tweets where the Sentiment Tools did NOT agree.
 
 See the [Data Prep Notebook](./code/data_prep.ipynb) for additional information on data collection and preparation. 
 
@@ -69,7 +72,7 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 
 ### Recommendation 3
 * Audience: Data Scientists seeking to expand this work
-* The collected data has a class imbalance issue with 73.9% of the data labeled as Positive. Make sure any hyperparameter tuning uses the 'balanced' class_weight for LinearSVC or any other classification algorithm you may choose to experiment with. If class_weight 'balanced' is not an option, consider using RandomOverSampling to address the imbalance.
+* The collected data has a class imbalance issue with 73.9% of the data labeled as Positive. Make sure any hyperparameter tuning uses the 'balanced' class_weight for LinearSVC or any other classification algorithm you may choose to experiment with. If class_weight 'balanced' is not an option, consider using Random Over Sampling to address the imbalance.
 
 
 
@@ -90,12 +93,12 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 # Repository Structure
 ```
 --code
-----get_tweets.py
-----read_twitter_stream.py
-----extract_tweets_to_df.py
-----data_prep.ipnyb
-----eda.ipynb
-----corpus_eda.ipynb (topic modeling on the tweet corpus)
+----get_tweets.py (data collection)
+----read_twitter_stream.py (data collection)
+----extract_tweets_to_df.py (data collection/prep)
+----data_prep.ipnyb (data prep)
+----eda.ipynb (general EDA)
+----corpus_eda.ipynb (topic modeling on the Tweet corpus)
 ----modeling_playground.ipynb  (experimentation on different modeling options)
 ----modeling.ipynb (final sentiment classifier modeling)
 --data (dir for all data files ingested/generated)
