@@ -32,11 +32,11 @@ Positive, Negative, and Neutral sentiment labels for the Tweets were obtained us
 
 30,599 Tweets made it to the final project dataset after combining the Kaggle and collected Tweets, filtering out non-US locations, and dropping Tweets where the Sentiment Tools did NOT agree.
 
-See the [Data Prep Notebook](./code/data_prep.ipynb) for additional information on data collection and preparation. 
+See the [Data Prep Notebook](./code/nb1_data_prep.ipynb) for additional information on data collection and preparation. 
 
 
 # EDA Questions Explored
-I performed [EDA](./code/eda.ipynb) on various sentiment breakdowns (see Questions 1, 2, and 3). I also performed [Corpus EDA](./code/corpus_eda.ipynb) using Unsupervised Learning (LatentDirichletAllocation) to perform Topic Modeling (see Question 4).
+I performed [EDA](./code/nb2_eda.ipynb) on various sentiment breakdowns (see Questions 1, 2, and 3). I also performed [Corpus EDA](./code/nb3_corpus_eda.ipynb) using Unsupervised Learning (LatentDirichletAllocation) to perform Topic Modeling (see Question 4).
 
 #### Question 1: What is the general sentiment breakdown for the collected Tweets?
 ![sentiment pie chart](./images/tweet_sentiment_piechart.png)
@@ -58,9 +58,9 @@ I wanted to take a closer look at the Topics modeled by LDA. Using [pyLDAvis](ht
 
 
 # Sentiment Classifer Modeling
-In the [Model Experimentation Notebook](./code/model_playground.ipynb), I trained three different multiclass classifers (RandomForest, SGDClassifier, and LinearSCV).  I used weighted F1 score as the performance metric, and ultimately selected the LinearSVC model for further tuning.
+In the [Model Experimentation Notebook](./code/nb4_model_playground.ipynb), I trained three different multiclass classifers (RandomForest, SGDClassifier, and LinearSCV).  I used weighted F1 score as the performance metric, and ultimately selected the LinearSVC model for further tuning.
 
-In the [Final Model Notebook](./code/modeling.ipynb), I performed hyperparameter tuning using GridSearchCV, resulting in a multiclass classifer with the following performance:
+In the [Final Model Notebook](./code/nb5_modeling.ipynb), I performed hyperparameter tuning using GridSearchCV, resulting in a multiclass classifer with the following performance:
 * Weighted F1 score of __0.94__ 
 ![confusion matrix](./images/cm.png)
 
@@ -87,6 +87,9 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 # Future Work
 * Create a dashboard/app that would allow the user to select specific Regions and/or States for Topic Modeling. Also allow for setting the desired number of topics and top word count. 
 * Create a dashboard/app to classify Tweets from the live Twitter stream. Allow the user to stream for Tweets for the entire United States, or selected US Region(s) or selected US State(s).
+* Create a dashboard/app that would allow the user to select specific Regions and/or States for Topic Modeling. Also allow for setting the desired number of topics and top word count. 
+* Identify specific Topics of interest and train a Text Classifier to classify Tweets according to those Topics. Consider Sentiment Classification after Tweet Topic has been determined.
+    * For Example: Create a Text Classifer with Educators in mind.  Detect Tweets on Topics such as Online Teaching Resources, Participation/Engagment Tips for Online Learning, Teacher Professional Development, EdTech Products.
 * Continue to collect Tweets over a longer timespan and update model.
 * Improve the regex code used to detect a 'likely' United States location from the Tweet User-provided Location string.
 
@@ -104,10 +107,10 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 ----nb1_data_prep.ipnyb (data prep)
 ----nb2_eda.ipynb (general EDA)
 ----nb3_corpus_eda.ipynb (topic modeling on the Tweet corpus)
-----nb4_demo_topic_viz.ipynb (interactive topic model visualization)
-----nb5_modeling_playground.ipynb  (experimentation on different modeling options)
-----nb6_modeling.ipynb (final sentiment classifier modeling)
-----nb7_demo_classifier.ipynb (get predictions from new Tweets)
+----nb4_modeling_playground.ipynb  (experimentation on different modeling options)
+----nb5_modeling.ipynb (final sentiment classifier modeling)
+----demo_topic_viz.ipynb (interactive topic model visualization)
+----demo_classifier.ipynb (get predictions from new Tweets)
 ----get_tweets.py (data collection)
 ----read_twitter_stream.py (data collection)
 ----extract_tweets_to_df.py (data collection/prep)
