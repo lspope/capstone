@@ -52,7 +52,7 @@ I performed [EDA](./code/eda.ipynb) on various sentiment breakdowns (see Questio
 
 
 # Topics Deep Dive
-I wanted to take a closer look at the Topics modeled by LDA. Using the pyLDAvis tool, I created interactive visualizations for various topic sets.  To experiment for yourself, go to [Topic Visualization with pyLDAvis](https://nbviewer.jupyter.org/github/lspope/capstone/blob/main/code/demo_topic_viz.ipynb?flush_cache=false) to explore the topics detected across the US and within each US geographic Region.
+I wanted to take a closer look at the Topics modeled by LDA. Using [pyLDAvis](https://github.com/bmabey/pyLDAvis), I created interactive visualizations for various topic sets.  To experiment for yourself, go to [Topic Visualization with pyLDAvis](https://nbviewer.jupyter.org/github/lspope/capstone/blob/main/code/demo_topic_viz.ipynb?flush_cache=false) to explore the topics detected across the US and within each US geographic Region.
 
 
 # Sentiment Classifer Modeling
