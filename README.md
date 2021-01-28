@@ -62,9 +62,6 @@ In the [Model Experimentation Notebook](./code/model_playground.ipynb), I traine
 
 In the [Final Model Notebook](./code/modeling.ipynb), I performed hyperparameter tuning using GridSearchCV, resulting in a multiclass classifer with the following performance:
 * Weighted F1 score of __0.94__ 
-* Positive class F1 score of 0.97 
-* Neutral class F1 score of 0.90
-* Negative class F1 score of 0.83
 ![confusion matrix](./images/cm.png)
 
 
@@ -104,14 +101,16 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 # Repository Structure
 ```
 --code
+----1_data_prep.ipnyb (data prep)
+----2_eda.ipynb (general EDA)
+----3_corpus_eda.ipynb (topic modeling on the Tweet corpus)
+----4_demo_topic_viz.ipynb (interactive topic notebook)
+----5_modeling_playground.ipynb  (experimentation on different modeling options)
+----6_modeling.ipynb (final sentiment classifier modeling)
+----7_demo_classifier.ipynb (get predictions from new Tweets)
 ----get_tweets.py (data collection)
 ----read_twitter_stream.py (data collection)
 ----extract_tweets_to_df.py (data collection/prep)
-----data_prep.ipnyb (data prep)
-----eda.ipynb (general EDA)
-----corpus_eda.ipynb (topic modeling on the Tweet corpus)
-----modeling_playground.ipynb  (experimentation on different modeling options)
-----modeling.ipynb (final sentiment classifier modeling)
 --data (dir for all data files ingested/generated)
 --images (dir for images)
 ```
