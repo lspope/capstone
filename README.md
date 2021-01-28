@@ -51,6 +51,10 @@ I performed [EDA](./code/eda.ipynb) on various sentiment breakdowns (see Questio
 ![topics for southeast positive tweets](./images/SE_neg_topics.png)
 
 
+# Topics Deep Dive
+I wanted to take a closer look at the Topics modeled by LDA. Using the pyLDAvis tool, I created interactive visualizations for various topic sets.  To experiment for yourself, go to [Topic Visualization with pyLDAvis](https://nbviewer.jupyter.org/github/lspope/capstone/blob/main/code/demo_topic_viz.ipynb?flush_cache=false) to explore the topics detected across the US and within each US geographic Region.
+
+
 # Sentiment Classifer Modeling
 In the [Model Experimentation Notebook](./code/model_playground.ipynb), I trained three different multiclass classifers (RandomForest, SGDClassifier, and LinearSCV).  I used weighted F1 score as the performance metric, and ultimately selected the LinearSVC model for further tuning.
 
@@ -67,7 +71,7 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 
 ### Recommendation 1
 * Audience: Education-focused Stakeholders
-* The number of Positive sentiment Tweets is __substantially__ higher than the other sentiment classes in every State, in every Region. This initial analysis suggests that Twitter is being used across the US to communicate positive information and statements on Education during COVID. I recommend that Stakeholders explore the [Topic Visualization with pyLDAvis Notebook](https://nbviewer.jupyter.org/github/lspope/capstone/blob/main/code/demo_topic_viz.ipynb?flush_cache=false) to explore the topics detected across the US and within each US geographic Region.
+* The number of Positive sentiment Tweets is __substantially__ higher than the other sentiment classes in every State, in every Region. This initial analysis suggests that Twitter is being used across the US to communicate positive information and statements on Education during COVID. I recommend that Stakeholders interact with the [Topic Visualization with pyLDAvis](https://nbviewer.jupyter.org/github/lspope/capstone/blob/main/code/demo_topic_viz.ipynb?flush_cache=false) to explore the topics detected across the US and within each US geographic Region.
 
 ### Recommendation 2
 * Audience: Education-focused Stakeholders
