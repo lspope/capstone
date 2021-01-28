@@ -101,13 +101,13 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 # Repository Structure
 ```
 --code
-----1_data_prep.ipnyb (data prep)
-----2_eda.ipynb (general EDA)
-----3_corpus_eda.ipynb (topic modeling on the Tweet corpus)
-----4_modeling_playground.ipynb  (experimentation on different modeling options)
-----5_modeling.ipynb (final sentiment classifier modeling)
-----demo_topic_viz.ipynb (interactive topic notebook)
-----demo_classifier.ipynb (get predictions from new Tweets)
+----nb1_data_prep.ipnyb (data prep)
+----nb2_eda.ipynb (general EDA)
+----nb3_corpus_eda.ipynb (topic modeling on the Tweet corpus)
+----nb4_demo_topic_viz.ipynb (interactive topic model visualization)
+----nb5_modeling_playground.ipynb  (experimentation on different modeling options)
+----nb6_modeling.ipynb (final sentiment classifier modeling)
+----nb7_demo_classifier.ipynb (get predictions from new Tweets)
 ----get_tweets.py (data collection)
 ----read_twitter_stream.py (data collection)
 ----extract_tweets_to_df.py (data collection/prep)
