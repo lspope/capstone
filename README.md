@@ -10,7 +10,7 @@ Presentation: [Here](CapstoneProject_LeahPope.pdf)
 
 Blog: [Coming Soon](https://leahspope7.medium.com)
 
-![education_during_covid_image](images/thomas-park-6MePtA9EVDA-unsplash.jpg)
+![education_during_covid_image](./images/thomas-park-6MePtA9EVDA-unsplash.jpg)
 
 
 
@@ -35,6 +35,21 @@ Positive, Negative, and Neutral sentiment labels for the Tweets were obtained us
 See the [Data Prep Notebook](./code/data_prep.ipynb) for additional information on data collection and preparation. 
 
 
+# EDA Questions Explored
+I performed [EDA](./code/eda.ipynb) on various sentiment breakdowns (see Questions 1, 2, and 3). I also performed [Corpus EDA](./code/corpus_eda.ipynb) using Unsupervised Learning (LatentDirichletAllocation) to perform Topic Modeling (see Question 4).
+
+#### Question 1: What is the general sentiment breakdown for the collected Tweets?
+![sentiment pie chart](./images/tweet_sentiment_piechart.png)
+
+#### Question 2: What is the Breakdown of Tweets by US Geographic Region and by State in each Region?
+![tweets by region](./images/tweet_count_by_region.png)
+
+#### Question 3: What is the Sentiment Breakdown of Tweets by US Geographic Region and by State in each Region?
+![sentiment by region](./images/sent_breakdown_by_region.png)
+
+#### Question 4: What are the Topics for Positive, Negative, and Neutral Tweets in the US, in the Southeast Region, and in the state of Alabama?
+![topics for southeast positive tweets](./images/SE_neg_topics.png)
+
 
 # Sentiment Classifer Modeling
 In the [Model Experimentation Notebook](./code/model_playground.ipynb), I trained three different multiclass classifers (RandomForest, SGDClassifier, and LinearSCV).  I used weighted F1 score as the performance metric, and ultimately selected the LinearSVC model for further tuning.
@@ -44,17 +59,7 @@ In the [Final Model Notebook](./code/modeling.ipynb), I performed hyperparameter
 * Positive class F1 score of 0.97 
 * Neutral class F1 score of 0.90
 * Negative class F1 score of 0.83
-
-
-
-# EDA Questions Explored
-I performed [EDA](./code/eda.ipynb) on various sentiment breakdowns (see Questions 1, 2, and 3). I also performed [Corpus EDA](./code/corpus_eda.ipynb) using Unsupervised Learning (LatentDirichletAllocation) to perform Topic Modeling (see Question 4).
-
-#### Question 1: What is the general sentiment breakdown for the collected Tweets?
-#### Question 2: What is the Breakdown of Tweets by US Geographic Region and by State in each Region?
-#### Question 3: What is the Sentiment Breakdown of Tweets by US Geographic Region and by State in each Region?
-#### Question 4: What are the Topics for Positive, Negative, and Neutral Tweets in the US, in the Southeast Region, and in the state of Alabama?
-
+![confusion matrix](./images/cm.png)
 
 
 # Recommendations
@@ -62,7 +67,7 @@ My recommendations are for the Education-focused Stakeholders identified in the 
 
 ### Recommendation 1
 * Audience: Education-focused Stakeholders
-* The number of Positive sentiment Tweets is __substantially__ higher than the other sentiment classes in every State, in every Region. This initial analysis suggests that Twitter is being used across the US to communicate positive information and statements on Education during COVID. I recommend that Stakeholders explore the [Topic Visualization with pyLDAvis Notebook](https://nbviewer.jupyter.org/github/lspope/capstone/blob/main/code/demo_topic_viz.ipynb#topic=3&lambda=1&term=) to explore the topics detected across the US and within each US geographic Region.
+* The number of Positive sentiment Tweets is __substantially__ higher than the other sentiment classes in every State, in every Region. This initial analysis suggests that Twitter is being used across the US to communicate positive information and statements on Education during COVID. I recommend that Stakeholders explore the [Topic Visualization with pyLDAvis Notebook](https://nbviewer.jupyter.org/github/lspope/capstone/blob/main/code/demo_topic_viz.ipynb?flush_cache=false) to explore the topics detected across the US and within each US geographic Region.
 
 ### Recommendation 2
 * Audience: Education-focused Stakeholders
