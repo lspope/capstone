@@ -8,7 +8,7 @@ Prepared and presented by: [Leah Pope](https://www.linkedin.com/in/leahspope/)
 
 Presentation: [Here](CapstoneProject_LeahPope.pdf)
 
-Blog: [Coming Soon](https://leahspope7.medium.com)
+Blog: [On Medium](https://leahspope7.medium.com/topic-modeling-using-lda-59586a20dbfa)
 
 ![education_during_covid_image](./images/thomas-park-6MePtA9EVDA-unsplash.jpg)
 
