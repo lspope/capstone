@@ -6,7 +6,7 @@ Flatiron Online Data Science Bootcamp __Capstone Project__
 
 Prepared and presented by: [Leah Pope](https://www.linkedin.com/in/leahspope/)
 
-Presentation: [Here](CapstoneProject_LeahPope.pdf)
+Presentation: [Slides](CapstoneProject_LeahPope.pdf) and [Video](https://drive.google.com/file/d/1tnVtkXB_vxrFdN_rdLx8xXud7j2BE53F/view?usp=sharing)
 
 Blog: [On Medium](https://leahspope7.medium.com/topic-modeling-using-lda-59586a20dbfa)
 
